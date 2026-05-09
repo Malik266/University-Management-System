@@ -1,0 +1,223 @@
+body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #e8f5e9);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 20px;
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 30px;
+      transition: background 0.3s;
+    }
+
+    header a:hover {
+      background-color: rgba(255,255,255,0.4);
+    }
+
+    .container {
+      display: flex;
+      min-height: 90vh;
+    }
+
+    .sidebar {
+      overflow-y: auto;
+      z-index: 100;
+      width: 220px;
+      background: #ffffff;
+      padding: 25px 20px;
+      border-right: 1px solid #ccc;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .sidebar.hidden {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    #toggleSidebarBtn {
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
+      #toggleSidebarBtn {
+        display: block;
+        position: relative;
+        z-index: 1001;
+        background: #1565c0;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 100;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .sidebar.visible {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+
+    @keyframes slideIn {
+      from { transform: translateX(-30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 18px;
+      color: #1565c0;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #e3f2fd;
+      transform: translateX(5px);
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px;
+      background: #fefefe;
+      animation: fadeInContent 1s ease-in-out;
+    }
+
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .main h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 600px; 
+      border-collapse: collapse;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        min-width: 100%; 
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      header, footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      input[type="text"], select {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .table-responsive table {
+      min-width: 600px; 
+    }
+
+    table th {
+      background-color: #1565c0;
+      color: white;
+      padding: 12px;
+    }
+
+    table td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background-color: #f1f8ff;
+    }
+
+    .profile-details p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .profile-details strong {
+      color: #1565c0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #1565c0, #00bcd4);
+      color: white;
+      font-size: 14px;
+    }

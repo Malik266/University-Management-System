@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - UniPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/login_style.css?v=2.0" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <div class="logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h2>Welcome Back</h2>
+        <p>Sign in to your account</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label><i class="fas fa-user-tag"></i> Login As</label>
+          <select name="role" id="role" required>
+            <option value="">-- Select Role --</option>
+            <option value="admin">Admin</option>
+            <option value="instructor">Instructor</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+
+        <div class="loading" id="loading">
+          <i class="fas fa-spinner"></i> Logging in...
+        </div>
+        <div class="error-message" id="errorMessage"></div>
+      </form>
+
+      <div class="divider">
+        <span>Secure Portal</span>
+      </div>
+
+      <div class="login-footer">
+        &copy; 2025 UniPortal. All rights reserved.
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const role = document.getElementById("role").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (!role) {
+            document.getElementById("errorMessage").textContent =
+              "Please select a role";
+            return;
+          }
+
+          document.getElementById("errorMessage").textContent = "";
+          document.getElementById("loading").style.display = "flex";
+
+          let loginScript = "";
+          if (role === "student") loginScript = "login_student.php";
+          else if (role === "instructor") loginScript = "login_instructor.php";
+          else if (role === "admin") loginScript = "login_admin.php";
+
+          const formData = new FormData();
+          formData.append("email", email);
+          formData.append("password", password);
+
+          try {
+            const response = await fetch(loginScript, {
+              method: "POST",
+              body: formData,
+            });
+            const result = await response.text();
+            document.getElementById("loading").style.display = "none";
+
+            console.log("Login response:", result); // للتأكد من القيمة
+
+            if (result === "success" || result.includes("success")) {
+              console.log("Redirecting to:", role);
+              if (role === "student") {
+                window.location.href = "../HomePages/student_home.php";
+              } else if (role === "instructor") {
+                window.location.href = "../HomePages/instructor_home.php";
+              } else if (role === "admin") {
+                window.location.href = "../HomePages/admin_dashboard.php";
+              }
+            } else {
+              document.getElementById("errorMessage").textContent = result;
+            }
+          } catch (error) {
+            console.error("Fetch error:", error);
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("errorMessage").textContent =
+              "Login failed. Please try again.";
+          }
+        });
+    </script>
+  </body>
+</html>

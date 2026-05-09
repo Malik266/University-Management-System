@@ -1,0 +1,6 @@
+Array
+(
+    [student_id] => 18
+    [course_id] => 5
+    [schedule_id] => 5
+)

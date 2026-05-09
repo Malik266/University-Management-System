@@ -1,0 +1,24 @@
+Array
+(
+    [student_id] => 1
+    [name] => Faris Mohemmed
+    [email] => faris.mohamed@student.uni.edu
+    [courses] => Array
+        (
+            [0] => Array
+                (
+                    [schedule_id] => 2
+                    [enrollment_id] => 2
+                )
+
+            [1] => Array
+                (
+                    [schedule_id] => 3
+                    [enrollment_id] => 3
+                )
+
+        )
+
+    [course_id] => 8
+    [schedule_id] => 8
+)

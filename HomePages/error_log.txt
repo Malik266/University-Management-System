@@ -1,0 +1,150 @@
+[09-May-2026 19:47:46 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'IC.schedule_id' in 'field list' in C:\xampp\htdocs\SQLProject\HomePages\admin.php:226
+Stack trace:
+#0 C:\xampp\htdocs\SQLProject\HomePages\admin.php(226): mysqli_prepare(Object(mysqli), 'SELECT IC.cours...')
+#1 {main}
+  thrown in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 226
+[09-May-2026 19:50:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'IC.schedule_id' in 'field list' in C:\xampp\htdocs\SQLProject\HomePages\admin.php:226
+Stack trace:
+#0 C:\xampp\htdocs\SQLProject\HomePages\admin.php(226): mysqli_prepare(Object(mysqli), 'SELECT IC.cours...')
+#1 {main}
+  thrown in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 226
+[09-May-2026 19:51:04 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'IC.schedule_id' in 'field list' in C:\xampp\htdocs\SQLProject\HomePages\admin.php:226
+Stack trace:
+#0 C:\xampp\htdocs\SQLProject\HomePages\admin.php(226): mysqli_prepare(Object(mysqli), 'SELECT IC.cours...')
+#1 {main}
+  thrown in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 226
+[09-May-2026 19:51:12 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'IC.schedule_id' in 'field list' in C:\xampp\htdocs\SQLProject\HomePages\admin.php:226
+Stack trace:
+#0 C:\xampp\htdocs\SQLProject\HomePages\admin.php(226): mysqli_prepare(Object(mysqli), 'SELECT IC.cours...')
+#1 {main}
+  thrown in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 226
+[09-May-2026 19:52:23 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:52:23 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:52:23 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:52:23 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:52:23 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:53:33 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:53:33 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:53:33 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:53:33 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:53:33 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:54:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:21 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:21 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:21 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:21 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:21 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:44 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:44 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:44 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:44 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:44 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:55:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:29 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:50 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:50 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:50 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:50 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:50 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:56:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:12 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:12 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:12 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:12 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:12 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:32 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:52 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:53 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:53 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:57 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:57 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:57 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:57 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:57:57 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:58:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:58:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:58:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:58:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 19:58:01 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:15 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:15 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:15 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:15 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:15 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:34 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:34 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:34 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:34 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:00:34 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:17:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:17:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:17:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:17:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 20:17:25 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:37:54 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:37:54 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:37:54 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:37:54 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:37:54 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:38:13 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:38:13 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:38:13 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:38:13 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:38:13 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:41:08 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:41:08 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:41:08 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:41:08 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:41:08 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:16 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:16 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:16 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:16 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:16 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:24 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:24 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:24 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:24 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:24 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:28 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:28 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:28 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:28 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
+[09-May-2026 21:46:28 Europe/Berlin] PHP Warning:  Undefined array key "schedule_id" in C:\xampp\htdocs\SQLProject\HomePages\admin.php on line 235
