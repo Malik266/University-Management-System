@@ -1,0 +1,321 @@
+-- ============================================================
+-- UNIVERSITY DATABASE - COMPLETE
+-- Students ID: 2026001+ | Instructors ID: 100+
+-- Password: Student{ID} or Instructor{ID}
+-- ============================================================
+
+CREATE DATABASE IF NOT EXISTS UniversityDB
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE UniversityDB;
+
+-- ============================================================
+-- 1. DEPARTMENTS TABLE
+-- ============================================================
+CREATE TABLE Departments (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- ============================================================
+-- 2. STUDENTS TABLE (ID starts from 2026001)
+-- ============================================================
+CREATE TABLE Students (
+    student_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    code_seq INT NOT NULL DEFAULT 0,
+    code VARCHAR(20) GENERATED ALWAYS AS (CONCAT('STU', code_seq)) STORED,
+    major_id INT NULL,
+    mysql_user_created TINYINT DEFAULT 0,
+    PRIMARY KEY (student_id),
+    FOREIGN KEY (major_id) REFERENCES Departments(department_id)
+);
+
+ALTER TABLE Students AUTO_INCREMENT = 2026001;
+
+-- ============================================================
+-- 3. INSTRUCTORS TABLE (ID starts from 100)
+-- ============================================================
+CREATE TABLE Instructors (
+    instructor_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    department_id INT NULL,
+    mysql_user_created TINYINT DEFAULT 0,
+    PRIMARY KEY (instructor_id),
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+
+ALTER TABLE Instructors AUTO_INCREMENT = 100;
+
+-- ============================================================
+-- 4. COURSES TABLE (Each course appears once)
+-- ============================================================
+CREATE TABLE Courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    credits INT NOT NULL
+);
+
+-- ============================================================
+-- 5. COURSE SCHEDULES TABLE (One course can have multiple schedules)
+-- ============================================================
+CREATE TABLE CourseSchedules (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_id INT NOT NULL,
+    day_of_week VARCHAR(20) NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
+);
+
+-- ============================================================
+-- 6. INSTRUCTOR COURSES TABLE (With schedule_id for each assignment)
+-- ============================================================
+CREATE TABLE InstructorCourses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    instructor_id INT NOT NULL,
+    course_id INT NOT NULL,
+    schedule_id INT NOT NULL,
+    semester VARCHAR(20) DEFAULT 'Spring 2025',
+    UNIQUE KEY uq_instructor_course_schedule (instructor_id, course_id, schedule_id),
+    FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE,
+    FOREIGN KEY (schedule_id) REFERENCES CourseSchedules(schedule_id) ON DELETE CASCADE
+);
+
+-- ============================================================
+-- 7. ENROLLMENTS TABLE
+-- ============================================================
+CREATE TABLE Enrollments (
+    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrollment_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    grade VARCHAR(2) NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'active',
+    UNIQUE KEY uq_student_course (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
+);
+
+-- ============================================================
+-- 8. STUDENT NAME CHANGE LOG TABLE
+-- ============================================================
+CREATE TABLE StudentNameChangeLog (
+    LogID INT AUTO_INCREMENT PRIMARY KEY,
+    StudentID INT NOT NULL,
+    OldName VARCHAR(100),
+    NewName VARCHAR(100),
+    ChangeDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ============================================================
+-- 9. TRIGGER - Auto increment student code
+-- ============================================================
+DELIMITER $$
+CREATE TRIGGER trg_student_code_seq
+BEFORE INSERT ON Students
+FOR EACH ROW
+BEGIN
+    SET NEW.code_seq = (SELECT IFNULL(MAX(code_seq), 999) + 1 FROM Students);
+END$$
+DELIMITER ;
+
+-- ============================================================
+-- 10. TRIGGER - Log student name changes
+-- ============================================================
+DELIMITER $$
+CREATE TRIGGER trg_StudentNameChange
+AFTER UPDATE ON Students
+FOR EACH ROW
+BEGIN
+    IF OLD.name <> NEW.name THEN
+        INSERT INTO StudentNameChangeLog (StudentID, OldName, NewName, ChangeDate)
+        VALUES (OLD.student_id, OLD.name, NEW.name, NOW());
+    END IF;
+END$$
+DELIMITER ;
+
+-- ============================================================
+-- 11. PROCEDURE - Create MySQL user for student
+-- ============================================================
+DELIMITER $$
+
+CREATE PROCEDURE CreateStudentUser(IN p_student_id INT, IN p_email VARCHAR(150), IN p_name VARCHAR(100))
+BEGIN
+    DECLARE mysql_username VARCHAR(50);
+    DECLARE mysql_password VARCHAR(50);
+    
+    SET mysql_username = REPLACE(SUBSTRING_INDEX(p_email, '@', 1), '.', '_');
+    SET mysql_password = CONCAT('Student', p_student_id);
+    
+    SET @sql = CONCAT('CREATE USER IF NOT EXISTS ''', mysql_username, '''@''localhost'' IDENTIFIED BY ''', mysql_password, '''');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+    
+    SET @sql2 = CONCAT('GRANT SELECT ON UniversityDB.Students TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt2 FROM @sql2;
+    EXECUTE stmt2;
+    DEALLOCATE PREPARE stmt2;
+    
+    SET @sql3 = CONCAT('GRANT SELECT ON UniversityDB.Enrollments TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt3 FROM @sql3;
+    EXECUTE stmt3;
+    DEALLOCATE PREPARE stmt3;
+    
+    SET @sql4 = CONCAT('GRANT SELECT ON UniversityDB.Courses TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt4 FROM @sql4;
+    EXECUTE stmt4;
+    DEALLOCATE PREPARE stmt4;
+    
+    UPDATE Students SET mysql_user_created = 1 WHERE student_id = p_student_id;
+END$$
+
+DELIMITER ;
+
+-- ============================================================
+-- 12. PROCEDURE - Create MySQL user for instructor
+-- ============================================================
+DELIMITER $$
+
+CREATE PROCEDURE CreateInstructorUser(IN p_instructor_id INT, IN p_email VARCHAR(150), IN p_name VARCHAR(100))
+BEGIN
+    DECLARE mysql_username VARCHAR(50);
+    DECLARE mysql_password VARCHAR(50);
+    
+    SET mysql_username = REPLACE(SUBSTRING_INDEX(p_email, '@', 1), '.', '_');
+    SET mysql_password = CONCAT('Instructor', p_instructor_id);
+    
+    SET @sql = CONCAT('CREATE USER IF NOT EXISTS ''', mysql_username, '''@''localhost'' IDENTIFIED BY ''', mysql_password, '''');
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+    
+    SET @sql2 = CONCAT('GRANT SELECT, UPDATE ON UniversityDB.Enrollments TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt2 FROM @sql2;
+    EXECUTE stmt2;
+    DEALLOCATE PREPARE stmt2;
+    
+    SET @sql3 = CONCAT('GRANT SELECT ON UniversityDB.Courses TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt3 FROM @sql3;
+    EXECUTE stmt3;
+    DEALLOCATE PREPARE stmt3;
+    
+    SET @sql4 = CONCAT('GRANT SELECT ON UniversityDB.Students TO ''', mysql_username, '''@''localhost''');
+    PREPARE stmt4 FROM @sql4;
+    EXECUTE stmt4;
+    DEALLOCATE PREPARE stmt4;
+    
+    UPDATE Instructors SET mysql_user_created = 1 WHERE instructor_id = p_instructor_id;
+END$$
+
+DELIMITER ;
+
+-- ============================================================
+-- 13. ADMIN USER
+-- ============================================================
+CREATE USER IF NOT EXISTS 'AdminUser'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+GRANT ALL PRIVILEGES ON UniversityDB.* TO 'AdminUser'@'localhost';
+
+-- ============================================================
+-- 14. SAMPLE DATA - DEPARTMENTS
+-- ============================================================
+INSERT INTO Departments (name) VALUES
+('Computer Science'),
+('Mathematics'),
+('Physics'),
+('Business Administration');
+
+-- ============================================================
+-- 15. SAMPLE DATA - INSTRUCTORS (ID: 100, 101, 102)
+-- Password: Instructor100, Instructor101, Instructor102
+-- ============================================================
+INSERT INTO Instructors (name, email, password, department_id) VALUES
+('Dr. Ahmed Ali', 'ahmed.ali@uni.edu', MD5('Instructor100'), 1),
+('Dr. Sara Hassan', 'sara.hassan@uni.edu', MD5('Instructor101'), 2),
+('Dr. Omar Khaled', 'omar.khaled@uni.edu', MD5('Instructor102'), 1);
+
+-- ============================================================
+-- 16. SAMPLE DATA - COURSES (Each course appears once)
+-- ============================================================
+INSERT INTO Courses (name, credits) VALUES
+('Database Systems', 3),
+('Data Structures', 3),
+('Calculus I', 4),
+('Linear Algebra', 3),
+('Operating Systems', 3);
+
+-- ============================================================
+-- 17. SAMPLE DATA - COURSE SCHEDULES (One course can have multiple schedules)
+-- ============================================================
+INSERT INTO CourseSchedules (course_id, day_of_week, start_time, end_time) VALUES
+-- Database Systems (course_id = 1) has 2 schedules
+(1, 'Saturday', '09:00:00', '10:30:00'),
+(1, 'Monday', '09:00:00', '10:30:00'),
+-- Data Structures (course_id = 2) has 2 schedules
+(2, 'Sunday', '11:00:00', '12:30:00'),
+(2, 'Tuesday', '11:00:00', '12:30:00'),
+-- Calculus I (course_id = 3) has 1 schedule
+(3, 'Saturday', '13:00:00', '14:30:00'),
+-- Linear Algebra (course_id = 4) has 1 schedule
+(4, 'Wednesday', '10:00:00', '11:30:00'),
+-- Operating Systems (course_id = 5) has 1 schedule
+(5, 'Thursday', '08:00:00', '09:30:00');
+
+-- ============================================================
+-- 18. SAMPLE DATA - INSTRUCTOR COURSES (With schedule_id)
+-- ============================================================
+INSERT INTO InstructorCourses (instructor_id, course_id, schedule_id) VALUES
+-- Dr. Ahmed Ali teaches Database Systems on Saturday (schedule_id = 1)
+(100, 1, 1),
+-- Dr. Ahmed Ali teaches Database Systems on Monday (schedule_id = 2)
+(100, 1, 2),
+-- Dr. Ahmed Ali teaches Data Structures on Sunday (schedule_id = 3)
+(100, 2, 3),
+-- Dr. Sara Hassan teaches Calculus I on Saturday (schedule_id = 5)
+(101, 3, 5),
+-- Dr. Sara Hassan teaches Linear Algebra on Wednesday (schedule_id = 6)
+(101, 4, 6),
+-- Dr. Omar Khaled teaches Operating Systems on Thursday (schedule_id = 7)
+(102, 5, 7);
+
+-- ============================================================
+-- 19. SAMPLE DATA - STUDENTS (ID: 2026001, 2026002, 2026003)
+-- Password: Student2026001, Student2026002, Student2026003
+-- ============================================================
+INSERT INTO Students (name, email, password, major_id) VALUES
+('Faris Mohamed', 'faris.mohamed@student.uni.edu', MD5('Student2026001'), 1),
+('Nour Ahmed', 'nour.ahmed@student.uni.edu', MD5('Student2026002'), 1),
+('Youssef Tarek', 'youssef.tarek@student.uni.edu', MD5('Student2026003'), 2);
+
+-- ============================================================
+-- 20. SAMPLE DATA - ENROLLMENTS
+-- ============================================================
+INSERT INTO Enrollments (student_id, course_id, grade, status) VALUES
+(2026001, 1, NULL, 'active'),
+(2026001, 2, NULL, 'active'),
+(2026002, 1, 'A', 'completed'),
+(2026002, 3, 'B', 'completed'),
+(2026003, 3, NULL, 'active');
+
+-- ============================================================
+-- 21. CREATE MYSQL USERS FOR STUDENTS
+-- ============================================================
+CALL CreateStudentUser(2026001, 'faris.mohamed@student.uni.edu', 'Faris Mohamed');
+CALL CreateStudentUser(2026002, 'nour.ahmed@student.uni.edu', 'Nour Ahmed');
+CALL CreateStudentUser(2026003, 'youssef.tarek@student.uni.edu', 'Youssef Tarek');
+
+-- ============================================================
+-- 22. CREATE MYSQL USERS FOR INSTRUCTORS
+-- ============================================================
+CALL CreateInstructorUser(100, 'ahmed.ali@uni.edu', 'Dr. Ahmed Ali');
+CALL CreateInstructorUser(101, 'sara.hassan@uni.edu', 'Dr. Sara Hassan');
+CALL CreateInstructorUser(102, 'omar.khaled@uni.edu', 'Dr. Omar Khaled');
+
+FLUSH PRIVILEGES;
